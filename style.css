@@ -1,0 +1,321 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --line-offset: calc((10vh + 8px) / 2);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+   
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    display: flex;
+}
+
+.tab {
+    width: calc(10vh + 8px);
+    height: calc(10vh + 8px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(0% 50%, 15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%);
+    shape-outside: polygon(0% 50%, 15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%);
+    z-index: 0;
+    transition: width 0.5s;
+}
+
+.tab img {
+    width: 10vh;
+    height: 10vh;
+    z-index: 10;
+    cursor: pointer;
+    clip-path: polygon(0% 50%, 15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%);
+    shape-outside: polygon(0% 50%, 15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%);
+    transition: width 0.5s;
+}
+
+[type=radio] {
+    display: none;   
+}
+
+.preview-list {
+    background: linear-gradient(
+        #021919,
+        #021919 var(--line-offset),
+        #efefef var(--line-offset)
+    );
+}
+
+.tab {
+    background: linear-gradient(
+        #efefef,
+        #efefef var(--line-offset),
+        #021919 var(--line-offset)
+    );
+}
+
+[type=radio]:checked ~ label ~ .content{
+    text-align: center;
+    z-index: 8;
+}
+
+
+[type=radio]:checked ~ label .tab{
+    width: 0;
+}
+
+.content {
+    position: absolute;
+    background: #021919;
+    top: 1vh;
+    left: 0;
+    width: 100vw;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.content img {
+    height: auto;
+    width: 100vw;  
+}
+
+
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ok, maybe you should use it for you gallery works */
+}
+
+body {
+  background: #efefef;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.wtricks-headerbar {
+  width: 100%;
+  height: 100px;
+  background: #FFC402;
+  padding-top: 10px;
+}
+  .wtricks-logo {
+    width: 286px;
+    height: 77px;
+    margin: 0 auto;
+    display: block;
+    text-indent: -9999px;
+    background: url('http://cdn.wtricks.com.br/images-theme/logo.png');
+  }
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+  .page-header, .page-footer {
+    width: 100%;
+    margin: 20px;
+    text-align: center; /* Take careful when you use text-align center
+       Bacause this affects postion of gallery navigation! I recomend you use it
+       inside a container like this. */
+  }
+      @media (min-width: 800px) {
+        .page-header, .page-footer {
+          width: 800px;
+          padding: 0;
+        }
+      }
+    .page-header p {
+      margin-top: 20px;
+      font-size: .8em;
+    }
+.page-footer p {
+  color: #ccc;
+}
+.page-footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Final page style
+   !!Below this line, Gallery's code starts!!*/
+
+/* Slideshow container */
+.gallery-container {
+  width: 90%;
+  position: relative;
+  margin: 0 5%;
+  background: #333;
+  padding: 2px;
+}
+  @media (min-width: 480px) {
+      .gallery-container {
+        width: 800px;
+        margin: auto;
+      }
+  }
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.imgslide {
+  width: 100%;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 768px) {
+  .numbertext {
+    top: 15px;
+  }
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+body {
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #384148;
+    background-color:  #fff;
+
+}
+
+.txtc2 {
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color:#0A1B2A;
+}
+
+
+.wrapper {
+  height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+.section { 
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.static {
+  background: red;
+}
+
+
+.bg1::after {
+  background-image: url('');
+}
+
+.bg2::after {
+  background-image: url(/fotos/dj2.jpg);
+}
